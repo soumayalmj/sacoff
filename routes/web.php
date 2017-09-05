@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/inscription', 'UtilisateursController@inscription')->name('inscription');
+Route::post('/inscription_post', 'UtilisateursController@inscription_post')->name('inscription_post');

@@ -12,9 +12,15 @@ class UtilisateursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+     public function __construct()
     {
-        
+        //$this->middleware('guest');
+    }
+
+    public function inscription()
+    {
+        return view('auth.inscription_utilisateur');
     }
 
     /**
@@ -22,7 +28,7 @@ class UtilisateursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function inscription(Request $request)
+    public function inscription_post(Request $request)
     {
         //validation
         $this->validate($request, [
@@ -30,13 +36,17 @@ class UtilisateursController extends Controller
                 'prenom' => 'required',
                 'adresse' => 'required',
                 'ville' => 'required',
-                'email' => 'required|email',
+                'pays' => 'required',
+                'email' => 'required|email|unique:emails_utilisateur',
                 'telephone' => 'required',
+                'pin' => 'required',
+                'pin_confirmation' => 'required|same:pin',
             ]);
         $nom =$request->nom;
         $prenom =$request->prenom;
         $adresse=$request->adresse;
         $ville=$request->ville;
+        $pays=$request->pays;
         $email=$request->email;
         $telephone=$request->telephone;
         //enregistrement dans la DB
@@ -45,7 +55,9 @@ class UtilisateursController extends Controller
         $post->prenom = $prenom;
         $post->adresse = $adresse;
         $post->ville = $ville;
-        $post->email = $email;
+        $post->emails->email = $email;
+        $post->villes->nom = $ville;
+        $post->pays->nom = $pays;
         $post->telephone = $telephone;
         $post->save();
         //envoie de l'email
