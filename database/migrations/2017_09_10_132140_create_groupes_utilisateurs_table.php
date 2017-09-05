@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatieresSacsTable extends Migration
+class CreateGroupesUtilisateursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateMatieresSacsTable extends Migration
      */
     public function up()
     {
-        Schema::create('matieres_notif', function (Blueprint $table) {
+        Schema::create('groupes_utilisateurs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
+            $table->unsignedInteger('utilisateur_id');
+            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

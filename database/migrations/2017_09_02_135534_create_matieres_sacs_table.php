@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatutUtilisateursTable extends Migration
+class CreateMatieresSacsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStatutUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('statut_utilisateurs', function (Blueprint $table) {
+        Schema::create('matieres_sacs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
             $table->string('token');

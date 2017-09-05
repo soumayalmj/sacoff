@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotificationsTable extends Migration
+class CreatePackagesSacsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('notifications', function (Blueprint $table) {
+        Schema::create('packages_sacs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titre');
-            $table->string('message');
-            $table->unsignedInteger('id_utilisateur');
-            $table->unsignedInteger('id_categorie');
+            $table->unsignedInteger('sac_id');
+            $table->foreign('sac_id')->references('id')->on('sacs');
+            $table->unsignedInteger('package_id');
+            $table->foreign('package_id')->references('id')->on('packages');            
+            $table->unsignedInteger('quantite');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

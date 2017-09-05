@@ -15,9 +15,13 @@ class CreateUtilisateursEntreprisesTable extends Migration
     {
         Schema::create('utilisateurs_entreprises', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_utilisateur');
-            $table->unsignedInteger('id_entreprise');
-            $table->unsignedInteger('id_role');
+            $table->unsignedInteger('utilisateur_id');
+            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('entreprise_id');
+            $table->foreign('entreprise_id')->references('id')->on('entreprises');
+            $table->unsignedInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles_entreprise');
+            $table->timestamp('validated_ad');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

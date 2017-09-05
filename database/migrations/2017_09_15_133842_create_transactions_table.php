@@ -15,9 +15,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('id_entreprise');
-            $table->unsignedInteger('id_utilisateur');
-            $table->unsignedInteger('id_sac');
+            $table->unsignedInteger('entreprise_id');
+            $table->foreign('entreprise_id')->references('id')->on('entreprises');
+            $table->unsignedInteger('utilisateur_id');
+            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('sac_id');
+            $table->foreign('sac_id')->references('id')->on('sacs');
             $table->unsignedInteger('quantite');
             $table->integer('transaction');
             $table->string('token');
