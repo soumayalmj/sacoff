@@ -24,8 +24,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inscription_uti', 'UsersController@inscription')->name('inscription_user');
 Route::post('/inscription_uti_post', 'UsersController@inscription_post')->name('inscription_user_post');
 
-g
-
 Route::get('/connexion', 'UsersController@connexion')->name('connexion');
 Route::post('/connexion_post', 'UsersController@connexion_post')->name('connexion_post');
 
