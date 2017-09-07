@@ -1,5 +1,6 @@
 body {
     font-family: "Lato", sans-serif;
+    background-color: #1aaf89;
 }
 
 /* DASHBOARD */
@@ -7,7 +8,7 @@ body {
     background-color: #1aaf89;
 }
 
-/* NAV */ 
+/* DASHBOARD -- NAV */ 
 
 nav.navbar.navbar-default.navi {
     background-color: #262626;
@@ -61,7 +62,7 @@ hr{
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 12px;
-    color: #818181;
+    color:gainsboro;
     display: block;
     transition: 0.3s;
 }
@@ -83,14 +84,14 @@ hr{
   .sidenav a {font-size: 18px;}
 }
 
-/* COMPTEUR */
+/* DASHBOARD -- COMPTEUR */
 
 .compteur{
   height: 200px;
   width: 200px;
   display: table-cell;
   text-align: center;
-border-radius: 50%; 
+  border-radius: 50%; 
   background: #dc704c;
   border: 5px solid #f6bc9f;
   color: white;
@@ -109,3 +110,30 @@ margin: 0px;
     font-size: 20px;
 }
 
+/* DASHBOARD -- CALL TO ACTION */
+
+.picto_btn{
+    width:40px;
+    margin: auto;
+    margin-top:18px; 
+}
+
+.cercle{
+    height: 80px;
+  width: 80px;
+  display: table-cell;
+  border-radius: 50%; 
+  background: #1f8c70;
+  border: 3px solid white;
+  color: white;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin:auto;
+}
+
+.calltoaction{
+    text-align: center;
+    color: white;
+    margin: 10px 0px 10px 0px;
+}
