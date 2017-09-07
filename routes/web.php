@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages/index');
 });
 
 Auth::routes();
@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/inscription_uti', 'UsersController@inscription')->name('inscription_user');
 Route::post('/inscription_uti_post', 'UsersController@inscription_post')->name('inscription_user_post');
 
-Route::get('generate_qr_code', 'UsersController@generate_qr_code')->name('generate_qr_code');
+g
 
 Route::get('/connexion', 'UsersController@connexion')->name('connexion');
 Route::post('/connexion_post', 'UsersController@connexion_post')->name('connexion_post');
