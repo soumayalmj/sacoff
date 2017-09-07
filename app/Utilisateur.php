@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Utilisateur extends Model
 {
     protected $table = "utilisateurs";
-    public function statutUtilisateur()
+
+    public function Emails()
     {
-        return $this->hasOne('App\StatutUtilisateur');
+        return $this->hasMany('App\Email');
     }
+
+    
 }

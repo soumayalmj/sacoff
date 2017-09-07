@@ -52,8 +52,11 @@ class RegisterController extends Controller
                 'prenom' => 'required',
                 'adresse' => 'required',
                 'ville' => 'required',
-                'email' => 'required|email',
+                'pays' => 'required',
+                'email' => 'required|email|unique:emails',
                 'telephone' => 'required',
+                'pin' => 'required',
+                'pin_confirmation' => 'required|same:pin',
         ]);
     }
 
@@ -65,13 +68,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        dd($data);
         return Utilisateur::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'adresse' => $data['adresse'],
             'ville' => $data['ville'],
             'pays' => $data['pays'],
-            'email' => $data['email'],
+            'email' => array_merge($object->array_ids, $data['email']),
             'telephone' => $data['telephone'],
             'pin' => bcrypt($data['pin']),
             'puk' => rand(1000, 9999),
