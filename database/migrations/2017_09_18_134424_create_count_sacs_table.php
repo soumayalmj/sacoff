@@ -15,8 +15,8 @@ class CreateCountSacsTable extends Migration
     {
         Schema::create('count_sacs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('package_id');
             $table->foreign('package_id')->references('id')->on('packages');
             $table->unsignedInteger('quantite');

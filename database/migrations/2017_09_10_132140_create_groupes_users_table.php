@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursTable extends Migration
+class CreateGroupesUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs', function (Blueprint $table) {
-            $table->engine = "InnoDB";
+        Schema::create('groupes_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('adresse');
-            $table->unsignedInteger('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
-            $table->unsignedInteger('statut');
-            $table->unsignedInteger('pin');
-            $table->unsignedInteger('puk');
+            $table->unsignedInteger('groupe_id');
+            $table->foreign('groupe_id')->references('id')->on('groupes');            
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

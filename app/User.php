@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nom', 'prenom', 'adresse', 'pin', 'token',
     ];
 
     /**
@@ -24,6 +24,32 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'pin', 'token',
     ];
+
+    protected $table = "users";
+
+    /**
+     * Get the emails of user.
+     */
+    public function emails()
+    {
+        return $this->hasMany(Email::class);
+    }
+
+    /**
+     * Get the pays that owns the user
+     */
+    public function pays()
+    {
+        return $this->belongsTo(Pays::class);
+    }
+
+    /**
+     * Get the telUsers of user.
+     */
+    public function telUsers()
+    {
+        return $this->hasMany(TelUser::class);
+    }
 }

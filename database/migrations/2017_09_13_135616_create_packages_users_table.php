@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVillesTable extends Migration
+class CreatePackagesusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateVillesTable extends Migration
      */
     public function up()
     {
-        Schema::create('villes', function (Blueprint $table) {
+        Schema::create('packages_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->unsignedInteger('pays_id');
-            $table->foreign('pays_id')->references('id')->on('pays');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedInteger('package_id');
+            $table->foreign('package_id')->references('id')->on('packages');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

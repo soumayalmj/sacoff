@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class TelUser extends Model
 {
-    protected $table = "emails_users";
+    protected $table = "tel_user";
 
     /**
      * The attributes that are mass assignable.
@@ -14,11 +14,11 @@ class Email extends Model
      * @var array
      */
     protected $fillable = [
-        'email', 'token',
+        'telephone', 'token',
     ];
 
     /**
-     * Get the user that owns the email
+     * Get the user that owns the teluser
      */
     public function user()
     {

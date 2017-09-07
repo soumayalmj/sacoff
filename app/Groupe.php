@@ -6,10 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Groupe extends Model
 {
-    protected $table = "groupes_utilisateurs";
+    protected $table = "groupes";
 
-    public function Utilisateurs()
+    /**
+     * Get all of the users for the groupe.
+     */
+    public function users()
     {
-        return $this->belongsToMany('App\Utilisateurs');
+        return $this->hasManyThrough(User::class, GroupesUser::class);
     }
 }

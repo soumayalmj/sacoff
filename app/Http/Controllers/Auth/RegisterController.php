@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Utilisateur;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+//use Illuminate\Foundation\Auth\RegistersUsers;
+use Bestmomo\LaravelEmailConfirmation\Traits\RegistersUsers;
+
 
 class RegisterController extends Controller
 {
