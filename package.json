@@ -17,5 +17,26 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "vue": "^2.1.10"
-  }
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  },
+  "name": "sacoff.dev",
+  "description": "<p align=\"center\"><img src=\"https://laravel.com/assets/img/components/logo-laravel.svg\"></p>",
+  "version": "1.0.0",
+  "main": "webpack.mix.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soumayalmj/sacoff.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soumayalmj/sacoff/issues"
+  },
+  "homepage": "https://github.com/soumayalmj/sacoff#readme"
 }
