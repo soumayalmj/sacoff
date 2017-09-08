@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('pages/index');
 });
 
+Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
+    return view('pages/utilisateur/acheter_sacs');
+}]);
+
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
