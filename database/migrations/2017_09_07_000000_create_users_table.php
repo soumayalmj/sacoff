@@ -19,11 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('adresse');
-            $table->unsignedInteger('pays_id');
-            $table->foreign('pays_id')->references('id')->on('pays');
-            $table->unsignedInteger('confirmation');
-            $table->unsignedInteger('pin');
-            $table->unsignedInteger('puk');
+            $table->unsignedInteger('pay_country_id');
+            $table->foreign('pay_country_id')->references('id')->on('pay_country');
+            $table->timestamp('confirmation')->nullable();
+            $table->string('pin');
+            $table->string('puk');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

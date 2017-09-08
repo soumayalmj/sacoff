@@ -15,7 +15,7 @@ class CreateTelUserTable extends Migration
     {
         Schema::create('tel_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
+            $table->string('mobile');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('token');

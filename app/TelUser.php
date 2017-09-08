@@ -14,7 +14,7 @@ class TelUser extends Model
      * @var array
      */
     protected $fillable = [
-        'telephone', 'token',
+        'mobile', 'user_id', 'token',
     ];
 
     /**

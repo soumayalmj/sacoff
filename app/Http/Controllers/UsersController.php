@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Email;
-use App\Pays;
-use App\TelUsers;
+use App\PayCountry;
+use App\TelUser;
 
 class UsersController extends Controller
 {
@@ -30,6 +30,28 @@ class UsersController extends Controller
         //dd($writer);
     }
 
+    public function generateCode($chrs = "",$t = FALSE,$onlynum =FALSE) {
+        if ($chrs == "")
+            $chrs = 8;
+        $chaine = "";
+        $list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        $listnum = "0123456789";
+        $listr="";
+        if($onlynum == TRUE)
+            $listr = $listnum;
+        else
+            $listr = $list;
+        mt_srand ( ( double ) microtime () * 1000000 );
+        $newstring = "";
+        if($t == TRUE)$newstring .= time () ;
+        while ( strlen ( $newstring ) < $chrs ) {
+            
+            $newstring .= $listr [mt_rand ( 0, strlen ( $listr ) - 1 )];
+        }
+        
+        return $newstring;
+    }
+
     public function inscription()
     {
         return view('auth.inscription_user');
@@ -42,6 +64,28 @@ class UsersController extends Controller
      */
     public function inscription_post(Request $request)
     {
+        function generateCode($chrs = "",$t = FALSE,$onlynum =FALSE) {
+            if ($chrs == "")
+                $chrs = 8;
+            $chaine = "";
+            $list = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+            $listnum = "0123456789";
+            $listr="";
+            if($onlynum == TRUE)
+                $listr = $listnum;
+            else
+                $listr = $list;
+            mt_srand ( ( double ) microtime () * 1000000 );
+            $newstring = "";
+            if($t == TRUE)$newstring .= time () ;
+            while ( strlen ( $newstring ) < $chrs ) {
+                
+                $newstring .= $listr [mt_rand ( 0, strlen ( $listr ) - 1 )];
+            }
+            
+            return $newstring;
+        }
+
         //validation
         $this->validate($request, [
                 'nom' => 'required',
@@ -60,6 +104,7 @@ class UsersController extends Controller
         $pays=$request->pays;
         $email=$request->email;
         $telephone=$request->telephone;
+        $pin=$request->pin;
 
         // génération du qr code
         //$renderer = new \BaconQrCode\Renderer\Image\Png();
@@ -69,25 +114,25 @@ class UsersController extends Controller
         //$writer->writeFile('lien fictif', 'qrcode.png');
 
         //enregistrement dans la DB
-        $post = new User();
-        $post->nom = $nom;
-        $post->prenom = $prenom;
-        $post->adresse = $adresse;
-        $post->puk = str_random(4);
-        $post->token = str_random(40);
-        $post->pays()->save($pays);
-        $post->pays_id = $post->pays()->id;
-        $post->save();
-        $newEmail = new Email(['email' => $email, 'token' => str_random(40), 'user_id' => $post->id]);
-        $post->emails()->save($newEmail);
-        $newPays = new Pays(['pays' => $pays, 'token' => str_random(40)]);
-        $post->pays()->save($newPays);
-        $newPays = new TelUsers(['telephone' => $telephone, 'token' => str_random(40), 'user_id' => $post->id]);
-        $post->telUsers()->save($telephone);
+
+        $user = new User();
+        $user->nom = $nom;
+        $user->prenom = $prenom;
+        $user->adresse = $adresse;
+        $user->pin = $pin;
+        $user->puk = generateCode(4, FALSE, TRUE);
+        $user->token = generateCode(16, TRUE);
+        //liaison avec le pays
+        $payCountry = PayCountry::where('name', $pays)->first();
+        $user->pay_country_id = $payCountry->id;
+        $user->save();
+        $newEmail = new Email(['email' => $email, 'token' => str_random(40), 'user_id' => $user->id]);
+        $user->emails()->save($newEmail);
+        $newPays = new TelUser(['telephone' => $telephone, 'token' => str_random(40), 'user_id' => $user->id]);
+        $user->telUsers()->save($telephone);
         
         
-        
-        //envoie de l'email
+        //envoi de l'email
         
         
         //renvoi vers la vue
