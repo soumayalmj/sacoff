@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePaysTable extends Migration
+class CreatePayCountryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreatePaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('pays', function (Blueprint $table) {
+        Schema::create('pay_country', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('token');
+            $table->string('name')->nullable();
+            $table->string('ref')->nullable();
+            $table->integer('approved')->nullable();
+            $table->integer('deleted')->default('0');
+            $table->tinyInteger('vies')->default('0');
             $table->timestamps();
             $table->softDeletes();
         });
