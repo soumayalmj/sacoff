@@ -3,24 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Utilisateur;
+use App\Entreprise;
 
-class UtilisateursController extends Controller
+
+class EntreprisesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-     public function __construct()
+    public function index()
     {
-        //$this->middleware('guest');
-    }
-
-    public function inscription()
-    {
-        return view('auth.inscription_utilisateur');
+        //
     }
 
     /**
@@ -28,43 +23,36 @@ class UtilisateursController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function inscription()
+    {
+        return view('auth.inscription_entreprise');
+    }
+
     public function inscription_post(Request $request)
     {
         //validation
         $this->validate($request, [
                 'nom' => 'required',
-                'prenom' => 'required',
                 'adresse' => 'required',
                 'ville' => 'required',
                 'pays' => 'required',
-                'email' => 'required|email|unique:emails_utilisateur',
-                'telephone' => 'required',
-                'pin' => 'required',
-                'pin_confirmation' => 'required|same:pin',
             ]);
         $nom =$request->nom;
-        $prenom =$request->prenom;
         $adresse=$request->adresse;
         $ville=$request->ville;
         $pays=$request->pays;
-        $email=$request->email;
-        $telephone=$request->telephone;
         //enregistrement dans la DB
-        $post = new Utilisateur();
+        $post = new Entreprise();
         $post->nom = $nom;
-        $post->prenom = $prenom;
         $post->adresse = $adresse;
         $post->ville = $ville;
-        $post->emails->email = $email;
-        $post->villes->nom = $ville;
         $post->pays->nom = $pays;
-        $post->telephone = $telephone;
         $post->save();
         //envoie de l'email
         
         
         //renvoi vers la vue
-        return view('home');
+        return route('home');
     }
 
     /**

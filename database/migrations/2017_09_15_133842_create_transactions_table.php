@@ -17,8 +17,8 @@ class CreateTransactionsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('entreprise_id');
             $table->foreign('entreprise_id')->references('id')->on('entreprises');
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('sac_id');
             $table->foreign('sac_id')->references('id')->on('sacs');
             $table->unsignedInteger('quantite');

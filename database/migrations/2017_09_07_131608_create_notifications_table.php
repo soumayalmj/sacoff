@@ -17,8 +17,8 @@ class CreateNotificationsTable extends Migration
             $table->increments('id');
             $table->string('titre');
             $table->string('message');
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('categories_notif');
             $table->string('token');

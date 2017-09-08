@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->engine = "InnoDB";
             $table->increments('id');
             $table->string('nom');
             $table->string('prenom');
             $table->string('adresse');
-            $table->unsignedInteger('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
-            $table->unsignedInteger('statut');
-            $table->unsignedInteger('pin');
-            $table->unsignedInteger('puk');
+            $table->unsignedInteger('pay_country_id');
+            $table->foreign('pay_country_id')->references('id')->on('pay_country');
+            $table->timestamp('confirmation')->nullable();
+            $table->string('pin');
+            $table->string('puk');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();
@@ -37,6 +37,6 @@ class CreateUtilisateursTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('users');
     }
 }

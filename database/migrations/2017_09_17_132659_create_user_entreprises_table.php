@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursEntreprisesTable extends Migration
+class CreateUserEntreprisesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateUtilisateursEntreprisesTable extends Migration
      */
     public function up()
     {
-        Schema::create('utilisateurs_entreprises', function (Blueprint $table) {
+        Schema::create('users_entreprises', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('entreprise_id');
             $table->foreign('entreprise_id')->references('id')->on('entreprises');
             $table->unsignedInteger('role_id');

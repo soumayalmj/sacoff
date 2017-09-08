@@ -17,8 +17,8 @@ class CreateEntreprisesTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->string('adresse');
-            $table->unsignedInteger('ville_id');
-            $table->foreign('ville_id')->references('id')->on('villes');
+            $table->unsignedInteger('pay_country_id');
+            $table->foreign('pay_country_id')->references('id')->on('pay_country');
             $table->unsignedInteger('statut');
             $table->string('token');
             $table->timestamps();

@@ -25,5 +25,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/inscription', 'UtilisateursController@inscription')->name('inscription');
-Route::post('/inscription_post', 'UtilisateursController@inscription_post')->name('inscription_post');
+// user
+Route::get('/inscription_uti', 'UsersController@inscription')->name('inscription_user');
+Route::post('/inscription_uti_post', 'UsersController@inscription_post')->name('inscription_user_post');
+
+Route::get('/connexion', 'UsersController@connexion')->name('connexion');
+Route::post('/connexion_post', 'UsersController@connexion_post')->name('connexion_post');
+
+// ENTREPRISE
+Route::get('/inscription_ent', 'EntreprisesController@inscription')->name('inscription_entreprise');
+Route::post('/inscription_post', 'EntreprisesController@inscription_post')->name('inscription_entreprise_post');

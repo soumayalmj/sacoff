@@ -167,6 +167,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Flipbox\OrmManager\OrmManagerServiceProvider::class,
+        Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
 
         /*
          * Application Service Providers...

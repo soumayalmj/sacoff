@@ -4,24 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Email extends Model
+class PayCountry extends Model
 {
-    protected $table = "emails_users";
-
+    protected $table = "pay_country";
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'email', 'token',
+        'nom', 'token',
     ];
 
     /**
-     * Get the user that owns the email
+     * Get the users of pays.
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }

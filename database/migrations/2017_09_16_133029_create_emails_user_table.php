@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmailsUtilisateurTable extends Migration
+class CreateEmailsUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEmailsUtilisateurTable extends Migration
      */
     public function up()
     {
-        Schema::create('emails_utilisateur', function (Blueprint $table) {
+        Schema::create('emails_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();;
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

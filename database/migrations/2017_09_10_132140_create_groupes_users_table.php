@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackagesUtilisateursTable extends Migration
+class CreateGroupesUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePackagesUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages_utilisateurs', function (Blueprint $table) {
+        Schema::create('groupes_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('utilisateur_id');
-            $table->foreign('utilisateur_id')->references('id')->on('utilisateurs');
-            $table->unsignedInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('packages');
+            $table->unsignedInteger('groupe_id');
+            $table->foreign('groupe_id')->references('id')->on('groupes');            
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();
