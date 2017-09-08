@@ -8474,6 +8474,10 @@ hr {
 
 /* DASHBOARD -- CALL TO ACTION */
 
+.dash {
+  margin-top: 20px;
+}
+
 .picto_btn {
   width: 40px;
   margin: auto;
@@ -8498,5 +8502,33 @@ hr {
   text-align: center;
   color: white;
   margin: 10px 0px 10px 0px;
+}
+
+a#acheter {
+  color: white;
+}
+
+a#acheter:hover {
+  text-decoration: none;
+}
+
+#precedent {
+  width: 30px;
+  margin: 12px 0px 15px 33px;
+}
+
+.produit {
+  background-color: white;
+}
+
+#sac_toile {
+  width: 80px;
+}
+
+.btn-produit {
+  background-color: red;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
 }
 

@@ -112,6 +112,10 @@ margin: 0px;
 
 /* DASHBOARD -- CALL TO ACTION */
 
+.dash{
+    margin-top: 20px;
+}
+
 .picto_btn{
     width:40px;
     margin: auto;
@@ -136,4 +140,13 @@ margin: 0px;
     text-align: center;
     color: white;
     margin: 10px 0px 10px 0px;
+}
+
+a#acheter{
+    color:white;
+   
+}
+
+a#acheter:hover{
+    text-decoration: none;
 }
