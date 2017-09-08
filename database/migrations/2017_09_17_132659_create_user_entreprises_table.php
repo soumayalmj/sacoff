@@ -23,6 +23,7 @@ class CreateUserEntreprisesTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles_entreprise');
             $table->timestamp('validated_ad');
             $table->string('token');
+            
             $table->timestamps();
             $table->softDeletes();
         });

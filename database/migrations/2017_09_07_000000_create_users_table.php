@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('pin');
             $table->string('puk');
             $table->string('token');
+            $table->string('remember_token', '100')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
