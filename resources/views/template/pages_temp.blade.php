@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="{{url('css/app.css')}}">
     </head>
     <body>
-            @include('pages.utilisateur.partials.nav')
+            @include('pages.utilisateur.partials.nav_pages')
             
             @yield('content')
        

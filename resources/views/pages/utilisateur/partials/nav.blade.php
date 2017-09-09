@@ -10,7 +10,7 @@
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/warning.png')}}">ALERTER</a>
             <hr>
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/password.png')}}">PLAINTE</a>
+            <a href="#"><img class="responsive param-icones" src="{{url('/images/plainte.png')}}">PLAINTE</a>
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/creer_entreprise.png')}}">CRÉER UNE ENTREPRISE</a>
             <hr>
