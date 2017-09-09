@@ -21,15 +21,6 @@ class UsersController extends Controller
         $this->middleware('guest');
     }
 
-    public function generate_qr_code(){
-        $renderer = new \BaconQrCode\Renderer\Image\Png();
-        $renderer->setHeight(512);
-        $renderer->setWidth(512);
-        $writer = new \BaconQrCode\Writer($renderer);
-        $writer->writeFile('lien fictif', 'qrcode.png');
-        //dd($writer);
-    }
-
     public function generateCode($chrs = "",$t = FALSE,$onlynum =FALSE) {
         if ($chrs == "")
             $chrs = 8;

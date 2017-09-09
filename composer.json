@@ -10,7 +10,8 @@
         "bestmomo/laravel-email-confirmation": "^1.0",
         "flipbox/orm-manager": "^1.0",
         "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "nette/mail": "^2.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

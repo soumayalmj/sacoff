@@ -19,19 +19,15 @@ Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
 
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// user
-Route::get('/inscription_uti', 'UsersController@inscription')->name('inscription_user');
-Route::post('/inscription_uti_post', 'UsersController@inscription_post')->name('inscription_user_post');
-
-Route::get('/connexion', 'UsersController@connexion')->name('connexion');
-Route::post('/connexion_post', 'UsersController@connexion_post')->name('connexion_post');
-
 // ENTREPRISE
 Route::get('/inscription_ent', 'EntreprisesController@inscription')->name('inscription_entreprise');
 Route::post('/inscription_post', 'EntreprisesController@inscription_post')->name('inscription_entreprise_post');
+
+
+// Email confirmation 
+Route::get('confirmation/resend', 'Auth\RegisterController@resend');
+Route::get('confirmation/{id}/{confirmation_code}', 'Auth\RegisterController@confirm');
