@@ -18,7 +18,7 @@
                 <div class="cercle">
                     <img class="picto_btn img-responsive" src="/images/qr-code.png">
                 </div>
-                <p class="calltoaction">QR code</p>
+                <p class="calltoaction"><a href="{{url('qrcode/'.\Auth::user()->id)}}">QR code</a></p>
             </div>
         </div>
         <div class="row dash">

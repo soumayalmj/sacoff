@@ -16,7 +16,15 @@
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/entreprise.png')}}">ENTREPRISE</a>
             <hr>
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/deconnexion.png')}}">DECONNEXION</a>
+            <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            DECONNEXION
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
         </div>
 
         <span style="font-size:30px;cursor:pointer;float:right;padding:8px 33px 15px 0px" onclick="openNav()"><img class="rouage pull-right" src="{{url('/images/rouage.png')}}"></span>
