@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('adresse') ? ' has-error' : '' }}">
-                            <label for="adresse" class="col-md-4 control-label">Adresse</label>
+                            <label for="adresse" class="col-md-4 control-label">Adresse complète</label>
 
                             <div class="col-md-6">
                                 <input id="adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" required autofocus>
@@ -66,20 +66,6 @@
                                 @if ($errors->has('adresse'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('adresse') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
-                            <label for="ville" class="col-md-4 control-label">Ville</label>
-
-                            <div class="col-md-6">
-                                <input id="ville" type="text" class="form-control" name="ville" value="{{ old('ville') }}" required autofocus>
-
-                                @if ($errors->has('ville'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('ville') }}</strong>
                                     </span>
                                 @endif
                             </div>

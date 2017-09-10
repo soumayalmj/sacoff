@@ -4,7 +4,7 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="pull-right rouage" src="{{url('/images/rouage_orange.png')}}"></a>
             <img id="profil" class="img-responsive" src="{{url('/images/pp.jpg')}}">
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/edit_user.png')}}">MODIFIER LE PROFIL</a>
+            <a href="{{url('/user/profil/'.\Auth::user()->id)}}"><img class="responsive param-icones" src="{{url('/images/edit_user.png')}}">MON PROFIL</a>
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/password.png')}}">GÉNÉRER CODE PIN/PUK</a>
             <hr>
@@ -18,7 +18,7 @@
             <hr>
             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();"><img class="responsive param-icones" src="{{url('/images/deconnexion.png')}}">
                                             DECONNEXION
                                         </a>
 

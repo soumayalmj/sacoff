@@ -31,7 +31,15 @@ Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     );
 });
 
+Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
+    Route::resource('user', 'UsersController');
+    Route::get('/profil/{id}', 'UsersController@show')->name('user.profil');
+    Route::get('/edit/{id}', 'UsersController@edit')->name('user.edit');
+    Route::post('/update/{id}', 'UsersController@update')->name('user.update');
+    Route::get('/qrcode/{id}', 'UsersController@generateQrCode')->name('qrcode');
+    Route::get('/generatepinpuk', 'UsersController@generatepinpuk');
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/qrcode/{id}', 'UsersController@generateQrCode')->name('qrcode');

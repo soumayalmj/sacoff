@@ -1,3 +1,4 @@
+@include('pages.utilisateur.partials.nav')
 <div id="bg_dashboard">
     <div class="container">
         <div class="compteur">
@@ -18,7 +19,7 @@
                 <div class="cercle">
                     <img class="picto_btn img-responsive" src="/images/qr-code.png">
                 </div>
-                <p class="calltoaction"><a href="{{url('qrcode/'.\Auth::user()->id)}}">QR code</a></p>
+                <p class="calltoaction"><a href="{{url('user/qrcode/'.\Auth::user()->id)}}">QR code</a></p>
             </div>
         </div>
         <div class="row dash">

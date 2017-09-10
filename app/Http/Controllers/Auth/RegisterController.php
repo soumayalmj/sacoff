@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Validator;
 use Bestmomo\LaravelEmailConfirmation\Traits\RegistersUsers;
 
 
+use Spipu\Html2Pdf\Html2Pdf;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -55,10 +58,10 @@ class RegisterController extends Controller
         return Validator::make($data, [
                 'nom' => 'required|string|max:255',
                 'prenom' => 'required|string|max:255',
-                'username' => 'required|string|max:255',
+                'username' => 'required|string|max:255|unique:users',
                 'adresse' => 'required',
                 'pays' => 'required|string|max:255',
-                'email' => 'required|email||string|max:255unique:emails_users',
+                'email' => 'required|email||string|max:255|unique:emails_users',
                 'telephone' => 'required',
                 'password' => 'required|max:4',
                 'password_confirmation' => 'required|same:password',
@@ -115,9 +118,7 @@ class RegisterController extends Controller
         
         $puk = generateCode(4, FALSE, TRUE);
         $payCountry = PayCountry::where('name', $pays)->first();
-
         
-
         return User::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
@@ -134,5 +135,8 @@ class RegisterController extends Controller
         $tel = new TelUser(['mobile' => $telephone, 'token' => generateCode(16, TRUE), 'user_id' => $user->id]);
         $user->telUsers()->save($tel);
 
+        $html2pdf = new Html2Pdf();
+        $html2pdf->writeHTML('<h1>PIN et PUK</h1><p>PIN : '.$password.'</p><p>PUK : '.$puk.'</puk>');
+        $html2pdf->output();
     }
 }
