@@ -8504,13 +8504,15 @@ hr {
   margin: 10px 0px 10px 0px;
 }
 
-a#acheter {
+a#lien_btn {
   color: white;
 }
 
-a#acheter:hover {
+a#lien_btn:hover {
   text-decoration: none;
 }
+
+/* ACHETER UN SAC */
 
 #precedent {
   width: 30px;
@@ -8523,12 +8525,42 @@ a#acheter:hover {
 
 #sac_toile {
   width: 80px;
+  margin: 15px;
 }
 
 .btn-produit {
-  background-color: red;
+  background-color: #1f8c70;
   border: none;
   margin-top: 10px;
   width: 100%;
+  color: white;
+}
+
+.modal-content {
+  background-color: rgba(19, 19, 19, 0.92);
+}
+
+.modal-title {
+  color: #de6b42;
+}
+
+.sous_titre_modal {
+  color: #1d9a7a;
+}
+
+.espace {
+  margin-top: 50px;
+}
+
+.description {
+  width: 20px;
+  display: inline-block;
+  float: left;
+}
+
+/* CHERCHER UN MAGASIN */
+
+.input-group.col-md-12 {
+  margin-top: 5px;
 }
 

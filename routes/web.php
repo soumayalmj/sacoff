@@ -19,6 +19,10 @@ Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
 
+Route::get('/trouver_magasin', ['as' => 'trouver_magasin', function () {
+    return view('pages/utilisateur/trouver_magasin');
+}]);
+
 
 
 Auth::routes();
