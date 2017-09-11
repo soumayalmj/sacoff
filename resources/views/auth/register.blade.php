@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('template.base')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,11 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Inscription</div>
-
+                @if (session('confirmation-success'))
+                    <div class="alert alert-success">
+                        {{ session('confirmation-success') }}
+                    </div>
+                @endif
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -39,8 +43,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="username" class="col-md-4 control-label">Nom d'utilisateur</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('adresse') ? ' has-error' : '' }}">
-                            <label for="adresse" class="col-md-4 control-label">Adresse</label>
+                            <label for="adresse" class="col-md-4 control-label">Adresse complète</label>
 
                             <div class="col-md-6">
                                 <input id="adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" required autofocus>
@@ -48,20 +66,6 @@
                                 @if ($errors->has('adresse'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('adresse') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('ville') ? ' has-error' : '' }}">
-                            <label for="ville" class="col-md-4 control-label">Ville</label>
-
-                            <div class="col-md-6">
-                                <input id="ville" type="text" class="form-control" name="ville" value="{{ old('ville') }}" required autofocus>
-
-                                @if ($errors->has('ville'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('ville') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -109,25 +113,25 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('pin') ? ' has-error' : '' }}">
-                            <label for="pin" class="col-md-4 control-label">PIN</label>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">PIN</label>
 
                             <div class="col-md-6">
-                                <input id="pin" type="password" class="form-control" name="pin" required>
+                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('pin'))
+                                @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pin') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="pin-confirm" class="col-md-4 control-label">Confirmation du code PIN</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmation du code PIN</label>
 
                             <div class="col-md-6">
-                                <input id="pin-confirm" type="password" class="form-control" name="pin_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 

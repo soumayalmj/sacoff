@@ -14,28 +14,39 @@
 Route::get('/', function () {
     return view('pages/index');
 });
+// Email confirmation 
+Route::get('confirmation/resend', 'Auth\RegisterController@resend');
+Route::get('confirmation/{id}/{confirmation_code}', 'Auth\RegisterController@confirm');
+
+Auth::routes();
 
 Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
 
+<<<<<<< HEAD
 Route::get('/trouver_magasin', ['as' => 'trouver_magasin', function () {
     return view('pages/utilisateur/trouver_magasin');
 }]);
 
+=======
+Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
+    // Notifications
+    Route::resource('notification', 'NotificationsController', ['names' => [
+    'store' => 'notification.send' ]]
+    );
+});
+>>>>>>> b84ca5beabbc6213c506242f03ae2eb03358a3d9
 
+Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
+    Route::resource('user', 'UsersController');
+    Route::get('/profil/{id}', 'UsersController@show')->name('user.profil');
+    Route::get('/edit/{id}', 'UsersController@edit')->name('user.edit');
+    Route::post('/update/{id}', 'UsersController@update')->name('user.update');
+    Route::get('/qrcode/{id}', 'UsersController@generateQrCode')->name('qrcode');
+    Route::get('/generatepinpuk', 'UsersController@generatepinpuk');
+});
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// user
-Route::get('/inscription_uti', 'UsersController@inscription')->name('inscription_user');
-Route::post('/inscription_uti_post', 'UsersController@inscription_post')->name('inscription_user_post');
-
-Route::get('/connexion', 'UsersController@connexion')->name('connexion');
-Route::post('/connexion_post', 'UsersController@connexion_post')->name('connexion_post');
-
-// ENTREPRISE
-Route::get('/inscription_ent', 'EntreprisesController@inscription')->name('inscription_entreprise');
-Route::post('/inscription_post', 'EntreprisesController@inscription_post')->name('inscription_entreprise_post');
