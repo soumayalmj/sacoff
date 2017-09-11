@@ -4,11 +4,11 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="pull-right rouage" src="{{url('/images/picto/rouage_orange.png')}}"></a>
             <img id="profil" class="img-responsive" src="{{url('/images/pp.jpg')}}">
-<<<<<<< HEAD
+
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/edit_user.png')}}">MODIFIER LE PROFIL</a>
-=======
+
             <a href="{{url('/user/profil/'.\Auth::user()->id)}}"><img class="responsive param-icones" src="{{url('/images/edit_user.png')}}">MON PROFIL</a>
->>>>>>> b84ca5beabbc6213c506242f03ae2eb03358a3d9
+
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/password.png')}}">GÉNÉRER CODE PIN/PUK</a>
             <hr>
@@ -20,9 +20,9 @@
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/entreprise.png')}}">ENTREPRISE</a>
             <hr>
-<<<<<<< HEAD
+
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/deconnexion.png')}}">DECONNEXION</a>
-=======
+
             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><img class="responsive param-icones" src="{{url('/images/deconnexion.png')}}">
@@ -32,7 +32,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
->>>>>>> b84ca5beabbc6213c506242f03ae2eb03358a3d9
+
         </div>
 
         <span style="font-size:30px;cursor:pointer;float:right;padding:8px 33px 15px 0px" onclick="openNav()"><img class="rouage pull-right" src="{{url('/images/picto/rouage.png')}}"></span>

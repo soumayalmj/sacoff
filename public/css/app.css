@@ -8355,6 +8355,37 @@ body {
   background-color: #1aaf89;
 }
 
+/* ACCUEIL */
+
+.accueil {
+  background-color: white;
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+}
+
+.row.col-xs-12.accueil_milieu {
+  margin: auto;
+}
+
+.logo_accueil {
+  width: 60%;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 40px;
+}
+
+.btn_accueil {
+  background-color: #1f8c70;
+  border: none;
+  margin-top: 30px;
+  width: 70%;
+  color: white;
+}
+
 /* DASHBOARD */
 
 #bg_dashboard {
@@ -8562,5 +8593,22 @@ a#lien_btn:hover {
 
 .input-group.col-md-12 {
   margin-top: 5px;
+}
+
+input.form-control.input-lg,
+.input-group-lg > input.form-control,
+.input-group-lg > .input-group-btn > input.form-control.btn {
+  background-color: #262626;
+  font-size: 15px;
+}
+
+button.btn.btn-info.btn-lg,
+.btn-group-lg > button.btn.btn-info {
+  background-color: #262626;
+  border-color: white;
+}
+
+.col-xs-3.recherche {
+  padding-left: 0;
 }
 

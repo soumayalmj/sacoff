@@ -24,19 +24,19 @@ Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
 
-<<<<<<< HEAD
+
 Route::get('/trouver_magasin', ['as' => 'trouver_magasin', function () {
     return view('pages/utilisateur/trouver_magasin');
 }]);
 
-=======
+
 Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     // Notifications
     Route::resource('notification', 'NotificationsController', ['names' => [
     'store' => 'notification.send' ]]
     );
 });
->>>>>>> b84ca5beabbc6213c506242f03ae2eb03358a3d9
+
 
 Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
     Route::resource('user', 'UsersController');

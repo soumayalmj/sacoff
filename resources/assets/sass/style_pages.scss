@@ -50,8 +50,19 @@
 
 .input-group.col-md-12{
     margin-top:5px;
+
 }
 
 input.form-control.input-lg{
-    
+    background-color: #262626;
+    font-size: 15px;
+}
+
+button.btn.btn-info.btn-lg{
+    background-color: #262626;
+    border-color: white;
+}
+
+.col-xs-3.recherche{
+    padding-left: 0;
 }
