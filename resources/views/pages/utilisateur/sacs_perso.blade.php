@@ -1,4 +1,4 @@
-@extends('template.pages_temp')
+@extends('template.pages_template')
 @section('content')
 
 <div class="row produit">
@@ -16,7 +16,7 @@
                 </div>
 
                 <div class="col-xs-8">
-                    <h3>Sac en toile</h3>
+                    <h3>Pack Sac en toile</h3>
                     <button type="button" class="btn btn-default btn-produit" data-toggle="modal" data-target="#myModal">
                         <img src="/images/picto/description.png" class="img-responsive description">
                         Description
@@ -58,12 +58,12 @@
 <div class="espace row btn-acheter">
     <div class="container">
         <div class="col-xs-12">
-            <a id="lien_btn" href="{{url('#')}}">
+            <a id="lien_btn" href="{{url('acheter_sacs')}}">
                 <div class="cercle">
-                    <img class="picto_btn img-responsive" src="/images/picto/sac_perso.png">
+                    <img class="picto_btn img-responsive" src="/images/picto/sac.png">
                 </div>
                 <p class="calltoaction">
-                Acheter des sacs
+                Sacs individuels
                 </p>
             </a>
         </div>

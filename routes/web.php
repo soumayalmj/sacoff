@@ -24,9 +24,20 @@ Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
 
+Route::get('/sacs_perso', ['as' => 'sacs_perso', function () {
+    return view('pages/utilisateur/sacs_perso');
+}]);
 
 Route::get('/trouver_magasin', ['as' => 'trouver_magasin', function () {
     return view('pages/utilisateur/trouver_magasin');
+}]);
+
+Route::get('/historique_transactions', ['as' => 'historique_transactions', function () {
+    return view('pages/utilisateur/historique_transactions');
+}]);
+
+Route::get('/dashboard', ['as' => 'dashboard', function () {
+    return view('pages/utilisateur/partials/dashboard');
 }]);
 
 

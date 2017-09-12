@@ -3,6 +3,13 @@ body {
     background-color: #1aaf89;
 }
 
+nav.navbar.navbar-default.navi {
+    background-color: #262626;
+    border:none;
+    margin: 0px;
+    height: 100%;
+}
+
 /* ACCUEIL */
 
 .accueil{
@@ -46,12 +53,7 @@ body {
 
 /* DASHBOARD -- NAV */ 
 
-nav.navbar.navbar-default.navi {
-    background-color: #262626;
-    border:none;
-    margin: 0px;
-    height: 100%;
-}
+
 .logo.img-responsive{
     width:25%;
     margin: O;

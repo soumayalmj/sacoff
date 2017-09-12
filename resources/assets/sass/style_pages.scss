@@ -1,3 +1,14 @@
+nav.navbar.navbar-default.navi {
+    background-color: #262626;
+    border:none;
+    margin: 0px;
+    height: 100%;
+}
+
+.titre_nav{
+    margin-top:15px; 
+}
+
 /* ACHETER UN SAC */
 
 #precedent{
@@ -48,6 +59,8 @@
 
 /* CHERCHER UN MAGASIN */
 
+/* NAV */
+
 .input-group.col-md-12{
     margin-top:5px;
 
@@ -66,3 +79,23 @@ button.btn.btn-info.btn-lg{
 .col-xs-3.recherche{
     padding-left: 0;
 }
+
+/* HISTORIQUE TRANSACTIONS */
+
+.bg_blanc{
+    background-color: white;
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;  
+    height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;
+}
+
+li.list-group-item.list-group-item-info.mois_historique{
+    text-align: center;
+    background-color: #1d9a7a;
+    border: none;
+    color: white;
+}
+

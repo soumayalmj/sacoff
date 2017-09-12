@@ -1,4 +1,5 @@
 @include('pages.utilisateur.partials.nav')
+@section('content')
 <div id="bg_dashboard">
     <div class="container">
         <div class="compteur">
@@ -42,3 +43,5 @@
 
     </div>
 </div>
+
+@endsection

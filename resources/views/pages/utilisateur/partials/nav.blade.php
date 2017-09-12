@@ -21,7 +21,6 @@
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/entreprise.png')}}">ENTREPRISE</a>
             <hr>
 
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/deconnexion.png')}}">DECONNEXION</a>
 
             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
