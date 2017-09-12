@@ -20,6 +20,7 @@ Route::get('confirmation/{id}/{confirmation_code}', 'Auth\RegisterController@con
 
 Auth::routes();
 
+/* pages du dash */
 Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
 }]);
@@ -40,6 +41,11 @@ Route::get('/dashboard', ['as' => 'dashboard', function () {
     return view('pages/utilisateur/partials/dashboard');
 }]);
 
+/* pages des parametres */
+
+Route::get('/entreprise', ['as' => 'entreprise', function () {
+    return view('pages/utilisateur/parametres/entreprise');
+}]);
 
 Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     // Notifications
