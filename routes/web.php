@@ -20,8 +20,31 @@ Route::get('confirmation/{id}/{confirmation_code}', 'Auth\RegisterController@con
 
 Auth::routes();
 
+/* pages du dash */
 Route::get('/acheter_sacs', ['as' => 'acheter_sacs', function () {
     return view('pages/utilisateur/acheter_sacs');
+}]);
+
+Route::get('/sacs_perso', ['as' => 'sacs_perso', function () {
+    return view('pages/utilisateur/sacs_perso');
+}]);
+
+Route::get('/trouver_magasin', ['as' => 'trouver_magasin', function () {
+    return view('pages/utilisateur/trouver_magasin');
+}]);
+
+Route::get('/historique_transactions', ['as' => 'historique_transactions', function () {
+    return view('pages/utilisateur/historique_transactions');
+}]);
+
+Route::get('/dashboard', ['as' => 'dashboard', function () {
+    return view('pages/utilisateur/partials/dashboard');
+}]);
+
+/* pages des parametres */
+
+Route::get('/entreprise', ['as' => 'entreprise', function () {
+    return view('pages/utilisateur/parametres/entreprise');
 }]);
 
 Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
@@ -30,6 +53,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     'store' => 'notification.send' ]]
     );
 });
+
 
 Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
     Route::resource('user', 'UsersController');
