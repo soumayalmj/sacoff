@@ -12,7 +12,7 @@
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/plainte.png')}}">PLAINTE</a>
             <hr>
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/creer_entreprise.png')}}">CRÉER UNE ENTREPRISE</a>
+            <a href="{{url('/user/entreprise')}}"><img class="responsive param-icones" src="{{url('/images/creer_entreprise.png')}}">CRÉER UNE ENTREPRISE</a>
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/entreprise.png')}}">ENTREPRISE</a>
             <hr>

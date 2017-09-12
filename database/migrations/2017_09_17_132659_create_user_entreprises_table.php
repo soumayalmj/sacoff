@@ -21,7 +21,6 @@ class CreateUserEntreprisesTable extends Migration
             $table->foreign('entreprise_id')->references('id')->on('entreprises');
             $table->unsignedInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles_entreprise');
-            $table->timestamp('validated_ad');
             $table->string('token');
             
             $table->timestamps();

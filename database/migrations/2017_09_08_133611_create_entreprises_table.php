@@ -19,7 +19,6 @@ class CreateEntreprisesTable extends Migration
             $table->string('adresse');
             $table->unsignedInteger('pay_country_id');
             $table->foreign('pay_country_id')->references('id')->on('pay_country');
-            $table->unsignedInteger('statut');
             $table->string('token');
             $table->timestamps();
             $table->softDeletes();

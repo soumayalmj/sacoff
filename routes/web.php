@@ -38,6 +38,8 @@ Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
     Route::post('/update/{id}', 'UsersController@update')->name('user.update');
     Route::get('/qrcode/{id}', 'UsersController@generateQrCode')->name('qrcode');
     Route::get('/generatepinpuk', 'UsersController@generatepinpuk');
+    Route::resource('entreprise', 'EntreprisesController');
+    Route::post('/entreprise/create', 'EntreprisesController@store')->name('entreprise.create');
 });
 
 
