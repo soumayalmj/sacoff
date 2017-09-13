@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navi">
     <div class="col-xs-3 recherche">
-        <a id="acheter" href="{{url('dashboard')}}">
+        <a id="acheter" href="{{url('/')}}">
             <img id="precedent" class="img-responsive" src="{{url('/images/picto/precedent.png')}}">
         </a>
     </div>

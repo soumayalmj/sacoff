@@ -18,18 +18,22 @@
                 </a>
             </div>
             <div class="col-xs-6">
-                <div class="cercle">
-                    <img class="picto_btn img-responsive" src="/images/picto/qr-code.png">
-                </div>
-                <p class="calltoaction"><a href="{{url('user/qrcode/'.\Auth::user()->id)}}">QR code</a></p>
+                <a href="{{url('user/qrcode/'.\Auth::user()->id)}}">
+                    <div class="cercle">
+                        <img class="picto_btn img-responsive" src="/images/picto/qr-code.png">
+                    </div>
+                    <p class="calltoaction">QR code</p>
+                </a>
             </div>
         </div>
         <div class="row dash">
             <div class="col-xs-6">
-                <div class="cercle">
-                    <img class="picto_btn img-responsive" src="/images/picto/historique.png">
-                </div>
-                <p class="calltoaction">Historique<br>des transactions</p>
+                <a href="{{url('historique_transactions')}}">
+                    <div class="cercle">
+                        <img class="picto_btn img-responsive" src="/images/picto/historique.png">
+                    </div>
+                    <p class="calltoaction">Historique<br>des transactions</p>
+                </a>
             </div>
             <div class="col-xs-6">
                 <a id="lien_btn" href="{{url('trouver_magasin')}}">

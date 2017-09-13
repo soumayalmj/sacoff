@@ -47,6 +47,10 @@ Route::get('/entreprise', ['as' => 'entreprise', function () {
     return view('pages/utilisateur/parametres/entreprise');
 }]);
 
+Route::get('/generer_pin_puk', ['as' => 'generer_pin_puk', function () {
+    return view('pages/utilisateur/parametres/generer_pin_puk');
+}]);
+
 Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     // Notifications
     Route::resource('notification', 'NotificationsController'
