@@ -5,9 +5,9 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img class="pull-right rouage" src="{{url('/images/picto/rouage_orange.png')}}"></a>
             <img id="profil" class="img-responsive" src="{{url('/images/pp.jpg')}}">
 
-            <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/edit_user.png')}}">MODIFIER LE PROFIL</a>
-
-            <a href="{{url('/user/profil/'.\Auth::user()->id)}}"><img class="responsive param-icones" src="{{url('/images/edit_user.png')}}">MON PROFIL</a>
+            <a href="{{url('/user/modif_profil/'.\Auth::user()->id)}}"><img class="responsive param-icones" src="{{url('/images/picto/edit_user.png')}}">MODIFIER LE PROFIL</a>
+            <hr>
+            <a href="{{url('/user/profil/'.\Auth::user()->id)}}"><img class="responsive param-icones" src="{{url('/images/picto/edit_user.png')}}">MON PROFIL</a>
 
             <hr>
             <a href="#"><img class="responsive param-icones" src="{{url('/images/picto/password.png')}}">GÉNÉRER CODE PIN/PUK</a>
@@ -24,7 +24,7 @@
 
             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><img class="responsive param-icones" src="{{url('/images/deconnexion.png')}}">
+                                                     document.getElementById('logout-form').submit();"><img class="responsive param-icones" src="{{url('/images/picto/deconnexion.png')}}">
                                             DECONNEXION
                                         </a>
 

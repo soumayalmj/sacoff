@@ -1,4 +1,4 @@
-@extends('template.base')
+@extends('template.base_index')
 @section('content')
 <div class="accueil">
     <div class="row col-xs-12 accueil_milieu">
@@ -7,14 +7,14 @@
         </div>
     </div>
     <div class="row col-xs-12 accueil_milieu">
-        <a id="lien_btn" href="{{url('home')}}">
+        <a id="lien_btn" href="{{url('/login')}}">
             <button type="submit" class="btn btn-primary btn_accueil center-block">
                 Se connecter
             </button>
         </a>
     </div>
     <div class="row col-xs-12 accueil_milieu">
-        <a id="lien_btn" href="{{url('#')}}">
+        <a id="lien_btn" href="{{url('/register')}}">
             <button type="submit" class="btn btn-primary btn_accueil center-block">
                 S'inscrire
             </button>

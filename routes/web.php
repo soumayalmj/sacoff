@@ -47,6 +47,10 @@ Route::get('/entreprise', ['as' => 'entreprise', function () {
     return view('pages/utilisateur/parametres/entreprise');
 }]);
 
+Route::get('/generer_pin_puk', ['as' => 'generer_pin_puk', function () {
+    return view('pages/utilisateur/parametres/generer_pin_puk');
+}]);
+
 Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
     // Notifications
     Route::resource('notification', 'NotificationsController', ['names' => [
@@ -58,6 +62,7 @@ Route::group(['namespace' => 'User', 'prefix' => 'user'], function(){
 Route::group(['namespace' => "User", 'prefix' => 'user'], function(){
     Route::resource('user', 'UsersController');
     Route::get('/profil/{id}', 'UsersController@show')->name('user.profil');
+    Route::get('/modif_profil/{id}', 'UsersController@edit')->name('user.modif_profil');
     Route::get('/edit/{id}', 'UsersController@edit')->name('user.edit');
     Route::post('/update/{id}', 'UsersController@update')->name('user.update');
     Route::get('/qrcode/{id}', 'UsersController@generateQrCode')->name('qrcode');

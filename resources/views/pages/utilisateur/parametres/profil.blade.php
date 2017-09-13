@@ -1,6 +1,4 @@
 @extends('template.base')
-
-
 @section('content')
 <div class="container">
     <div class="row">
