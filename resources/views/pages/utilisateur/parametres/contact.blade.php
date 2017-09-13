@@ -6,9 +6,18 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Contact</div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('notification.send') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('notification.store') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -32,9 +41,9 @@
 
                             <div class="col-md-6">
                                 <select id="type_notif" name="type_notif" class="form-control">
-                                    <option value="">Alerte</option>
-                                    <option value="">Plainte</option>
-                                    <option value="">Autre</option>
+                                    <option value="0">Alerte</option>
+                                    <option value="1">Plainte</option>
+                                    <option value="2">Autre</option>
                                 </select>
                             </div>
                         </div>

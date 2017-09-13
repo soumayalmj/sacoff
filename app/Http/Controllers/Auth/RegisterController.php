@@ -118,8 +118,13 @@ class RegisterController extends Controller
         
         $puk = generateCode(4, FALSE, TRUE);
         $payCountry = PayCountry::where('name', $pays)->first();
+        /* todo
         
-        return User::create([
+        if($payCountry == null){ 
+            
+        }*/
+        
+        $user = User::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
             'username' => $data['username'],
@@ -134,9 +139,13 @@ class RegisterController extends Controller
         $user->emails()->save($newEmail);
         $tel = new TelUser(['mobile' => $telephone, 'token' => generateCode(16, TRUE), 'user_id' => $user->id]);
         $user->telUsers()->save($tel);
+        /* todo
+        création d'un role pour l'utilisateur
+        */
 
         $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML('<h1>PIN et PUK</h1><p>PIN : '.$password.'</p><p>PUK : '.$puk.'</puk>');
+        $html2pdf->writeHTML('<h1>PIN et PUK</h1><p>PIN : '.$password.'</p><p>PUK : '.$puk.'</p>');
         $html2pdf->output();
+        return;
     }
 }

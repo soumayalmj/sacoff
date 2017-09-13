@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Notification;
 
 class NotificationsController extends Controller
 {
@@ -41,12 +42,14 @@ class NotificationsController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->type_notif);
         //validation
         $this->validate($request, [
                 'sujet' => 'required',
                 'type_notif' => 'required',
                 'message' => 'required'
             ]);
+            
         $sujet =$request->sujet;
         $type=$request->type_notif;
         $message=$request->message;

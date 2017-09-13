@@ -27,15 +27,17 @@ class UsersController extends Controller
     }
 
     public function generateQrCode($id){
-        $qrCode = new QrCode("{{ url('qrcode/'.$id) }}");
+        $qrCode = new QrCode("{{ url('user/profil/'.$id) }}");
 
         header('Content-Type: '.$qrCode->getContentType());
         echo $qrCode->writeString();
     }
     
     public function generatePinPuk(){
+        $puk = generateCode(4, FALSE, TRUE);
+        $password;
         $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML('<h1>HelloWorld</h1>This is my first test');
+        $html2pdf->writeHTML('<h1>PIN et PUK</h1><p>PIN : '.$password.'</p><p>PUK : '.$puk.'</p>');
         $html2pdf->output();
     }
 
